@@ -1,0 +1,111 @@
+//  GLOBAL
+$section__space: 80px;
+$col__space: 15px;
+$col__margin-bottom: $col__space * 2;
+
+
+// Section settings
+$section__padding: $section__space;
+$section__padding-mobile: $section__space / 2;
+
+
+//// 1.Section title [custom typography]
+$section-title__font-size: 50px;
+$section-title__margin-bottom: 45px;
+$section-title__color: #00274e;
+
+
+//  container
+$container__max-width: 1200px;
+
+//  row
+$row__margin-x: (-$col__space);
+$row__margin-bottom: (-$col__margin-bottom);
+
+//  col
+$col__padding: $col__space;
+
+//  col title
+$col-title__font-size: 35px;
+$col-title__color: #000;
+$col-title__margin: 20px;
+
+
+/* general layout */
+.#{$class-prefix}main{
+  &-inner{
+    padding-top: $section__padding;
+    padding-bottom: $section__padding;
+    @media screen and (max-width: $media-max-lg){
+      padding-top: $section__padding-mobile;
+      padding-bottom: $section__padding-mobile;
+    }
+  }
+}
+/* boxed-layout */
+.#{$class-prefix}boxed-layout{
+  padding-top: $col__space * 3;
+  padding-bottom: $col__space * 3;
+  @media screen and (max-width: $media-max-lg){
+    padding-top: $col__space * 1.5;
+    padding-bottom: $col__space * 1.5;
+  }
+}
+
+.#{$class-prefix}boxed-section{
+  padding-top: $col__space * 3;
+  padding-bottom: $col__space * 3;
+  @media screen and (max-width: $media-max-lg){
+    padding-top: $col__space * 1.5;
+    padding-bottom: $col__space * 1.5;
+  }
+}
+
+
+
+/*  sections */
+.#{$class-prefix}section{
+  padding-top: $section__padding;
+  padding-bottom:  $section__padding;
+
+  @media screen and (max-width: $media-max-lg){
+    padding-top: $section__padding-mobile;
+    padding-bottom: $section__padding-mobile;
+  }
+  &-title{
+    font-size: $section-title__font-size;
+    margin-bottom: $section-title__margin-bottom;
+    color: $section-title__color;
+  }
+}
+
+/*  container */
+.#{$class-prefix}container-fluid,
+.#{$class-prefix}container {
+  padding-left: $col__space;
+  padding-right: $col__space;
+}
+.#{$class-prefix}container{
+  max-width: $container__max-width;
+}
+
+/* row and col */
+.#{$class-prefix}row{
+  margin-left: $row__margin-x;
+  margin-right: $row__margin-x;
+  &.minus-m{
+    margin-bottom: $row__margin-bottom;
+    > [class*="col-"]{
+        margin-bottom: $col__margin-bottom;
+    }
+  }
+  > [class*="col-"]{
+    padding-left: $col__padding;
+    padding-right: $col__padding;
+  }
+ }
+.#{$class-prefix}col-title{
+  font-size: $col-title__font-size;
+  color: $col-title__color;
+  margin-bottom: $col-title__margin;
+}

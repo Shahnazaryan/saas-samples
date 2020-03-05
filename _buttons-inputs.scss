@@ -1,0 +1,313 @@
+//  GLOBAL
+$form-col__space: 5px;
+$form-col__margin-bottom: $form-col__space * 5;
+
+$form-col__padding: $form-col__space;
+$form-row__margin: (-$form-col__space);
+
+//  Same for button and input base styles
+$input-and-btn__line-height: 20px;
+$input-and-btn__height: 50px;
+$input-and-button__border-radius: 7px;
+
+
+//  buttons
+$btn__padding-x: 40px;
+$btn__font-size: 20px;
+$btn__bg-color: #F49E12;
+$btn__border-color: #f49e12;
+$btn__hover-bg-color: #d0a513;
+$btn__color: #fff;
+$btn__hover-color: #fff;
+$btn__active-color: #ffffff;
+$btn__active-bg-color: #f4c215;
+$btn__text-tranform: uppercase;
+$btn__font-weight: normal;
+$btn__border-width: 1px;
+$btn__padding-y: ($input-and-btn__height - $input-and-btn__line-height - ($btn__border-width) * 2) / 2;
+
+//  button + icon
+$btn-ico__first-x-padding: 10px;
+$btn-ico__last-x-padding: 15px;
+$btn-ico__y-padding: 5px;
+$btn-ico__width: 20px;
+//  icon
+$btn-icon__font-size: 16px;
+
+//  input
+$input__padding-x: 15px;
+
+$input__color: #000000;
+$input__font-size: 16px;
+$input__border-color: #a7cfe5;
+$input-placeholder__color: #b9b9b9;
+$input__border-width: 1px;
+$input__padding-y: ($input-and-btn__height - $input-and-btn__line-height - ($input__border-width) * 2) / 2;
+//  input + icon
+$input-icon__color:#000;
+
+
+//  form  box
+$form-box__bg-color: rgba(222, 224, 216, 1);
+$form-box__padding: 20px;
+$form-box-tittle__color: #000;
+$form-box-tittle__font-size: 25px;
+$form-box-tittle__margin: 15px;
+
+//  Form row and col styles
+.#{$class-prefix}form-row{
+  margin-left: $form-row__margin;
+  margin-right: $form-row__margin;
+  &.minus-m{
+    margin-bottom:(-$form-col__margin-bottom);
+    > [class*="col-"]{
+      margin-bottom: $form-col__margin-bottom;
+    }
+  }
+  > [class*="col-"]{
+    padding-left: $form-col__padding;
+    padding-right: $form-col__padding;
+  }
+}
+
+//  button
+.#{$class-prefix}btn{
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  user-select: none;
+  border-style: solid;
+  font-weight: $btn__font-weight;
+  height: $input-and-btn__height;
+  padding-top: $btn__padding-y;
+  padding-bottom: $btn__padding-y;
+  padding-left: $btn__padding-x;
+  padding-right: $btn__padding-x;
+  font-size: $btn__font-size;
+  border-radius: $input-and-button__border-radius;
+  background-color: $btn__bg-color;
+  color: $btn__color;
+  border-color: $btn__border-color;
+  border-width: $btn__border-width;
+  text-transform: $btn__text-tranform;
+  line-height: $input-and-btn__line-height;
+  text-decoration: none;
+  cursor: pointer;
+  &:visited{
+    color: $btn__color;
+  }
+  &:hover{
+    color: $btn__hover-color;
+    background-color: $btn__hover-bg-color;
+    border-color: $btn__hover-bg-color;
+    opacity: 1;
+  }
+  &:focus{
+    outline: 0;
+    box-shadow: none;
+  }
+  &:active{
+    background-color: $btn__active-bg-color;
+    color: $btn__active-color;
+  }
+  i{
+    font-size: $btn-icon__font-size;
+    line-height: $input-and-btn__line-height;
+  }
+  &-ico-x{
+    flex-flow: row;
+    i{
+      &:first-child{
+        padding-right: $btn-ico__first-x-padding;
+      }
+      &:last-child{
+        padding-left: $btn-ico__last-x-padding;
+      }
+    }
+  }
+  &-ico-y{
+    flex-flow: column;
+    height: auto;
+    i{
+      padding-top: $btn-ico__y-padding;
+    }
+  }
+  //  input + icon
+  &-input-ico{
+    position: relative;
+    display: inline-flex;
+    width: auto;
+    .btn{
+      padding-right: 60px; // Warning! Set Manual!!!
+    }
+    i{
+      font-size: $btn-icon__font-size;
+      line-height: $input-and-btn__line-height;
+      color: $btn__color;
+      position: absolute;
+      right: $btn__padding-x;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+  //  Creat button with after
+  &.icon-after, &.icon-before{
+    &:after, &:before{
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: $btn-icon__font-size;
+      line-height: $input-and-btn__line-height;
+    }
+  }
+  &.icon-before{
+    &:before{
+      content: "\f0b0";
+      padding-right: $btn-ico__first-x-padding;
+    }
+  }
+  &.icon-after{
+    &:after{
+      content: "\f105";
+      padding-left: $btn-ico__last-x-padding;
+    }
+  }
+}
+//  input
+input{
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $input-placeholder__color !important;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $input-placeholder__color !important;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $input-placeholder__color !important;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $input-placeholder__color !important;
+  }
+}
+
+.#{$class-prefix}input{
+  font-size: $input__font-size;
+  color: $input__color;
+  border-radius: $input-and-button__border-radius;
+  border-color: $input__border-color;
+  padding-top: $btn__padding-y;
+  padding-bottom: $btn__padding-y;
+  padding-left: $input__padding-x;
+  padding-right: $input__padding-x;
+  height: $input-and-btn__height;
+  line-height: $input-and-btn__line-height;
+  border-width: $input__border-width;
+  &-ico{
+    position: relative;
+    .#{$class-prefix}input{
+      padding-left: $input__padding-x * 2.5;
+    }
+    i{
+      height: $input-and-btn__height;
+      font-size: $input__font-size;
+      color: $input-icon__color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: $input__padding-x;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+.#{$class-prefix}textarea, .#{$class-prefix}input{
+  &:focus{
+    color: #495057;
+    background-color: #fff;
+    border-color: #3cbcff;
+    outline: 0;
+    box-shadow: 2px 2px 2px .8px rgba(66, 204, 255, 0.25);
+  }
+}
+
+//  textarea
+.#{$class-prefix}textarea{
+  font-size: $input__font-size;
+  border-color: $input__border-color;
+  border-radius: $input-and-button__border-radius;
+  min-height: 250px;
+  padding: $input__padding-x;
+}
+//  select
+select::-ms-value {
+  color: #495057;
+  background-color: #fff;
+}
+select{
+  width: 100%;
+  border-radius: $input-and-button__border-radius;
+  font-size: $input__font-size;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjkgMTI5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMjkgMTI5IiB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4Ij4KICA8Zz4KICAgIDxwYXRoIGQ9Im0xMjEuMywzNC42Yy0xLjYtMS42LTQuMi0xLjYtNS44LDBsLTUxLDUxLjEtNTEuMS01MS4xYy0xLjYtMS42LTQuMi0xLjYtNS44LDAtMS42LDEuNi0xLjYsNC4yIDAsNS44bDUzLjksNTMuOWMwLjgsMC44IDEuOCwxLjIgMi45LDEuMiAxLDAgMi4xLTAuNCAyLjktMS4ybDUzLjktNTMuOWMxLjctMS42IDEuNy00LjIgMC4xLTUuOHoiIGZpbGw9IiM4YzhjOGMiLz4KICA8L2c+Cjwvc3ZnPgo=');
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+//  label
+.#{$class-prefix}field-label{
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  font-weight: 400;
+  cursor: pointer;
+}
+//  upload file
+.file-btn-wrap{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  .file-btn{
+    width: 100%;
+    height: $input-and-btn__height;
+    border-width: $btn__border-width;
+    border-color: $btn__border-color;
+    background: $btn__bg-color;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: $input-and-button__border-radius;
+    border-style: solid;
+  }
+  input[type="file"]{
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    height: $input-and-btn__height;
+    background: #000;
+    width: 100%;
+    border-style: solid;
+    box-shadow: none;
+
+  }
+}
+
+//  form box
+.#{$class-prefix}form-box{
+  background-color: $form-box__bg-color;
+  padding: $form-box__padding;
+  &-title{
+    color: $form-box-tittle__color;
+    font-size: $form-box-tittle__font-size;
+    margin-bottom: $form-box-tittle__margin;
+  }
+}
+
+//  Add button types if you need

@@ -1,0 +1,133 @@
+//  parts
+//spaces (If you want to have individual spaces add margin to head, body, foot)
+$box__parts-border: 1px solid #989898;
+
+//  sub parts
+$box-sub-part__padding: 10px 0;
+$box-sub-part__border: $box__parts-border;
+
+//  box
+$box__padding: 20px;
+$box__bg-color: rgb(206, 206, 206);
+$box__text-color: #0e2f23;
+$box__fot-size: 16px;
+$box__line-height: 1.5;
+$box__border-radius: 0;
+$box__width-mobile: 350px;
+//  title
+$box-title__font-size: 25px;
+$box-title__line-height: 30px;
+$box-title__color: #ff2b3c;
+
+//  badge
+$box-badge__color: #fff;
+$box-badge__padding: 10px 25px;
+$box-badge__font-size: 18px;
+$box-badge__line-height: normal;
+$box-badge__bg-color: #2486ff;
+$box-badge__border-radius: 0;
+
+//  image box
+$box-img-box__bg-color: rgba(255, 255, 255, 0.50);
+$box-img-box__padding: 10px;
+$box-img-box__font-size: 14px;
+//  footer
+
+
+.#{$class-prefix}i-box{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  position: relative;
+  border-radius: $box__border-radius;
+  font-size: $box__fot-size;
+  line-height: $box__line-height;
+  color: $box__text-color;
+  background-color: $box__bg-color;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+  @media screen and (max-width: $media-max-md) {
+    height: auto;
+    max-width: $box__width-mobile;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-part{
+    padding: $box__padding $box__padding;
+    border-bottom: $box__parts-border;
+    &:last-child{
+      border: none;
+    }
+  }
+  &-sub-part{
+    padding: $box-sub-part__padding;
+    border-bottom: $box-sub-part__border;
+    &:first-child{
+      padding-top: 0;
+    }
+
+  }
+  &-img{
+    position: relative;
+    a{
+      display: block;
+    }
+    img{
+      width: 100%;
+      border-top-right-radius: $box__border-radius;
+      border-top-left-radius: $box__border-radius;
+    }
+  }
+  &-img-box{
+    right: $box__padding;
+    left: $box__padding;
+    background-color: $box-img-box__bg-color;
+    padding: $box-img-box__padding;
+    font-size: $box-img-box__font-size;
+    position: absolute;
+    bottom: 0;
+    &.#{$class-prefix}full{
+      left: 0;
+      right: 0;
+    }
+  }
+  &-title{
+    margin-bottom: 0;
+    font-size: $box-title__font-size;
+    line-height: $box-title__line-height;
+    color: $box-title__color;
+    a{
+      color: $box-title__color;
+      &:visited{
+        color: $box-title__color;
+      }
+    }
+  }
+  &-foot{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-badge{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 15px;
+    right: $box__padding;
+    left: $box__padding;
+    span{
+      padding: $box-badge__padding;
+      color: $box-badge__color;
+      background-color: $box-badge__bg-color;
+      line-height: $box-badge__line-height;
+      font-size: $box-badge__font-size;
+      border-radius: $box-badge__border-radius;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.23);
+    }
+  }
+}
+
